@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ali'nin Kahve Macerası - Boşluk Doldurma</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gap-input {
+            border-bottom: 2px solid #3b82f6;
+            outline: none;
+            padding: 2px 5px;
+            width: 120px;
+            transition: all 0.3s;
+        }
+        .gap-input:focus {
+            background-color: #eff6ff;
+            border-bottom-color: #1d4ed8;
+        }
+        .correct {
+            background-color: #d1fae5;
+            border-bottom-color: #10b981;
+            color: #065f46;
+        }
+        .incorrect {
+            background-color: #fee2e2;
+            border-bottom-color: #ef4444;
+            color: #991b1b;
+        }
+    </style>
+</head>
+<body class="bg-amber-50 min-h-screen flex items-center justify-center p-4">
+    <div class="bg-white p-8 rounded-2xl shadow-xl max-w-2xl w-full">
+        <h1 class="text-3xl font-bold text-amber-800 mb-2 text-center">☕ Ali'nin Kahve Macerası</h1>
+        <p class="text-amber-600 text-center mb-6 italic">A1.2 - A2.1 Seviyesi Boşluk Doldurma Etkinliği</p>
+        
+        <div class="bg-amber-100 p-4 rounded-lg mb-6 text-sm text-amber-900 leading-relaxed">
+            <strong>Yönerge:</strong> Aşağıdaki metindeki boşlukları parantez içindeki fiilleri uygun zamanlarda (Geniş Zaman, Şimdiki Zaman veya Geçmiş Zaman) kullanarak veya uygun kelimeleri yazarak doldurunuz.
+        </div>
+
+        <div id="story" class="text-lg leading-loose text-gray-800 text-justify mb-8">
+            Ali bu sabah saat 07:00'de <input type="text" data-answer="uyandı" class="gap-input text-center" placeholder="(uyanmak)">. 
+            Hava çok güzeldi, bu yüzden pencereyi <input type="text" data-answer="açtı" class="gap-input text-center" placeholder="(açmak)">. 
+            Mutfakta kendine büyük bir kahve <input type="text" data-answer="yapmak" class="gap-input text-center" placeholder="(yapmak)"> istedi. 
+            Cezveye su koydu ve ocağı yaktı. Ama Ali çok <input type="text" data-answer="uykuluydu" class="gap-input text-center" placeholder="(adj: sleepy)">. 
+            Yanlışlıkla şeker kavanozu yerine <input type="text" data-answer="tuz" class="gap-input text-center" placeholder="(noun: salt)"> kavanozunu aldı. 
+            Kahvesine iki kaşık tuz <input type="text" data-answer="attı" class="gap-input text-center" placeholder="(atmak)">. 
+            Sonra kahvesinden büyük bir yudum <input type="text" data-answer="aldı" class="gap-input text-center" placeholder="(almak)">. 
+            Birden Ali'nin gözleri fal taşı gibi açıldı! "Aman Allah'ım! Bu kahve çok <input type="text" data-answer="tuzlu" class="gap-input text-center" placeholder="(adj: salty)">!" diye 
+            <input type="text" data-answer="bağırdı" class="gap-input text-center" placeholder="(bağırmak)">. 
+            Ali o günden sonra kahve yaparken her zaman kavanozları <input type="text" data-answer="kontrol ediyor" class="gap-input text-center" placeholder="(kontrol etmek)">.
+        </div>
+
+        <div class="flex flex-col items-center gap-4">
+            <button onclick="checkAnswers()" class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 shadow-md">
+                Cevapları Kontrol Et
+            </button>
+            <p id="resultMessage" class="text-lg font-medium"></p>
+            <button onclick="resetQuiz()" class="text-amber-700 hover:underline text-sm">Temizle ve Tekrar Dene</button>
+        </div>
+    </div>
+
+    <script>
+        function checkAnswers() {
+            const inputs = document.querySelectorAll('.gap-input');
+            let correctCount = 0;
+            const total = inputs.length;
+
+            inputs.forEach(input => {
+                const userAnswer = input.value.trim().toLowerCase();
+                const correctAnswer = input.getAttribute('data-answer').toLowerCase();
+
+                if (userAnswer === correctAnswer) {
+                    input.classList.remove('incorrect');
+                    input.classList.add('correct');
+                    correctCount++;
+                } else {
+                    input.classList.remove('correct');
+                    input.classList.add('incorrect');
+                }
+            });
+
+            const resultMessage = document.getElementById('resultMessage');
+            if (correctCount === total) {
+                resultMessage.innerText = "Tebrikler! Harika iş çıkardın! 🎉";
+                resultMessage.className = "text-green-600 font-bold";
+            } else {
+                resultMessage.innerText = `${total} boşluktan ${correctCount} tanesini doğru bildin. Hadi tekrar dene! 💪`;
+                resultMessage.className = "text-amber-700";
+            }
+        }
+
+        function resetQuiz() {
+            const inputs = document.querySelectorAll('.gap-input');
+            inputs.forEach(input => {
+                input.value = "";
+                input.classList.remove('correct', 'incorrect');
+            });
+            document.getElementById('resultMessage').innerText = "";
+        }
+    </script>
+</body>
+</html>
+```eof
+
+Hazırladığım bu küçük uygulama, hem kelime dağarcığını geliştirmene hem de fiil çekimlerini (özellikle geçmiş zaman ve şimdiki zaman) tekrar etmene yardımcı olacak.
+
+**Bazı İpuçları:**
+*   Hikaye geçmişte başladığı için çoğu boşlukta **-di/-tı** geçmiş zaman ekini kullanmalısın.
+*   En son cümle genel bir alışkanlıktan bahsettiği için **-iyor** şimdiki zamanı uygun olacaktır.
+*   "Tuz" ve "Tuzlu" arasındaki farka dikkat et!
+
+İyi çalışmalar, başarılar dilerim!
