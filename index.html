@@ -4,11 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>İş Görüşmesi</title>
-
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -63,15 +60,6 @@
       color: #5a4632;
     }
 
-    .word-bank-title {
-      margin: 0 0 10px;
-      font-size: 17px;
-      color: #3f3022;
-      font-family: "Times New Roman", Georgia, serif;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-    }
-
     .word-bank {
       display: grid;
       grid-template-columns: repeat(5, minmax(118px, 1fr));
@@ -121,9 +109,7 @@
       transform: translateY(-1px);
     }
 
-    .word:active {
-      cursor: grabbing;
-    }
+    .word:active { cursor: grabbing; }
 
     .word.selected {
       outline: 2px solid #7a5b38;
@@ -144,43 +130,6 @@
       border-top: 1px solid #8d7657;
       border-bottom: 1px solid #8d7657;
       background: rgba(255, 250, 235, 0.45);
-    }
-
-    .content-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 24px;
-      margin-top: 8px;
-    }
-
-    .story-column {
-      flex: 1 1 58%;
-      min-width: 0;
-    }
-
-    .image-column {
-      flex: 0 0 34%;
-      max-width: 340px;
-    }
-
-    .hero-image-wrap {
-      margin: 0;
-      text-align: center;
-    }
-
-    .hero-image {
-      width: 100%;
-      display: block;
-      border: 8px solid #f4e9cd;
-      outline: 1px solid #8d7657;
-      box-shadow: 0 10px 24px rgba(69, 49, 28, 0.18);
-    }
-
-    .hero-caption {
-      margin-top: 10px;
-      font-size: 14px;
-      font-style: italic;
-      color: #5b4630;
     }
 
     .drop-zone {
@@ -212,13 +161,11 @@
 
     .drop-zone.filled {
       border-style: solid;
-      background: #e6d3ae;
+      background: #e9d8b5;
       cursor: grab;
     }
 
-    .drop-zone.filled:active {
-      cursor: grabbing;
-    }
+    .drop-zone.filled:active { cursor: grabbing; }
 
     .drop-zone.selected {
       outline: 2px solid #7a5b38;
@@ -238,6 +185,28 @@
       color: #6f271f;
     }
 
+    .hero-image-wrap {
+      margin: 26px 0 0;
+      text-align: center;
+    }
+
+    .hero-image {
+      width: 100%;
+      max-width: 430px;
+      display: block;
+      margin: 0 auto;
+      border: 8px solid #f4e9cd;
+      outline: 1px solid #8d7657;
+      box-shadow: 0 10px 24px rgba(69, 49, 28, 0.18);
+    }
+
+    .hero-caption {
+      margin-top: 10px;
+      font-size: 14px;
+      font-style: italic;
+      color: #5b4630;
+    }
+
     .actions {
       display: flex;
       flex-wrap: wrap;
@@ -248,7 +217,7 @@
 
     button {
       border: 0;
-      border-radius: 999px;
+      border-radius: 2px;
       padding: 12px 23px;
       font-size: 15px;
       font-weight: 700;
@@ -256,32 +225,24 @@
       transition: transform 0.15s, background 0.15s;
     }
 
-    button:hover {
-      transform: translateY(-1px);
-    }
+    button:hover { transform: translateY(-1px); }
 
     .check-button {
       background: #4a3827;
       color: #f7edd6;
       border: 1px solid #2f241a;
-      border-radius: 2px;
       box-shadow: 2px 3px 0 rgba(54, 39, 24, 0.25);
     }
 
-    .check-button:hover {
-      background: #2f241a;
-    }
+    .check-button:hover { background: #2f241a; }
 
     .reset-button {
       background: #d8c39b;
       color: #3f3022;
       border: 1px solid #70583f;
-      border-radius: 2px;
     }
 
-    .reset-button:hover {
-      background: #c9af7d;
-    }
+    .reset-button:hover { background: #c9af7d; }
 
     #result {
       min-height: 30px;
@@ -291,81 +252,33 @@
       font-weight: 700;
     }
 
-    .success {
-      color: #49633f;
-    }
-
-    .partial {
-      color: #7a4e22;
-    }
+    .success { color: #49633f; }
+    .partial { color: #7a4e22; }
 
     @media (max-width: 760px) {
-      body {
-        padding: 10px;
-      }
-
-      .container {
-        padding: 24px 16px;
-      }
-
-      .word-bank {
-        grid-template-columns: repeat(3, minmax(90px, 1fr));
-        min-height: 154px;
-      }
-
-      .story {
-        font-size: 16px;
-        line-height: 2.55;
-        text-align: left;
-      }
-
-      .drop-zone {
-        width: 126px;
-        min-width: 126px;
-        font-size: 14px;
-      }
-
-      .instructions {
-        font-size: 16px;
-      }
-
-      .content-row {
-        flex-direction: column;
-      }
-
-      .image-column {
-        max-width: 100%;
-        width: 100%;
-      }
-
-      .hero-image {
-        max-width: 100%;
-      }
+      body { padding: 10px; }
+      .container { padding: 24px 16px; }
+      .word-bank { grid-template-columns: repeat(3, minmax(90px, 1fr)); min-height: 154px; }
+      .story { font-size: 16px; line-height: 2.55; text-align: left; }
+      .drop-zone { width: 126px; min-width: 126px; font-size: 14px; }
+      .instructions { font-size: 16px; }
+      .hero-image { max-width: 100%; }
     }
 
     @media (max-width: 430px) {
-      .word-bank {
-        grid-template-columns: repeat(2, minmax(105px, 1fr));
-        min-height: 250px;
-      }
+      .word-bank { grid-template-columns: repeat(2, minmax(105px, 1fr)); min-height: 250px; }
     }
   </style>
 </head>
-
 <body>
   <main class="container">
     <h1>İş Görüşmesi</h1>
 
-    <p class="instructions">
-      Doğru kelimeyi seçelim ve boşluğa taşıyalım.
-    </p>
-</div>
+    <p class="instructions">Doğru kelimeyi seçelim ve boşluğa taşıyalım.</p>
 
-        <section id="wordBank" class="word-bank" aria-label="Kelime havuzu"></section>
+    <section id="wordBank" class="word-bank" aria-label="Kelime havuzu"></section>
 
-    <div class="content-row">
-      <div class="story-column">
-        <section class="story">
+    <section class="story">
       Dün sabah çok heyecanlıydım çünkü önemli bir randevum
       <span class="drop-zone" data-answer="vardı" tabindex="0"></span>.
       Bu bir iş görüşmesiydi. Erkenden kalktım ve beyaz gömleğimi
@@ -388,15 +301,15 @@
       Şanslıyım ki patron esprimi beğendi ve yeni işime
       <span class="drop-zone" data-answer="başladım" tabindex="0"></span>!
     </section>
-</div>
+
+    <div class="hero-image-wrap">
+      <img src="adam.png" alt="İş görüşmesine giden genç bir adam" class="hero-image">
+      <div class="hero-caption">Metne uygun görsel</div>
+    </div>
 
     <div class="actions">
-      <button class="check-button" type="button" onclick="checkAnswers()">
-        Cevapları Kontrol Et
-      </button>
-      <button class="reset-button" type="button" onclick="resetActivity()">
-        Temizle ve Tekrar Dene
-      </button>
+      <button class="check-button" type="button" onclick="checkAnswers()">Cevapları Kontrol Et</button>
+      <button class="reset-button" type="button" onclick="resetActivity()">Temizle ve Tekrar Dene</button>
     </div>
 
     <p id="result" aria-live="polite"></p>
@@ -404,37 +317,26 @@
 
   <script>
     const words = [
-      "başladım",
-      "dedi",
-      "döktü",
-      "girdim",
-      "giydim",
-      "kalabalıktı",
-      "söylemedim",
-      "vardı",
-      "verdim"
+      "başladım", "dedi", "döktü", "girdim", "giydim",
+      "kalabalıktı", "söylemedim", "vardı", "verdim"
     ];
 
     const wordBank = document.getElementById("wordBank");
     const zones = [...document.querySelectorAll(".drop-zone")];
-
     let selectedItem = null;
     let draggedItem = null;
 
     function shuffle(array) {
       const copy = [...array];
-
       for (let i = copy.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [copy[i], copy[j]] = [copy[j], copy[i]];
       }
-
       return copy;
     }
 
     function clearSelection() {
       selectedItem = null;
-
       document.querySelectorAll(".word, .drop-zone").forEach(item => {
         item.classList.remove("selected");
       });
@@ -446,30 +348,10 @@
 
     function setBankWordUsed(word, used) {
       const bankWord = getBankWord(word);
-
       if (bankWord) {
         bankWord.classList.toggle("used", used);
         bankWord.classList.remove("selected");
       }
-    }
-
-    function clearZone(zone) {
-      const oldWord = zone.dataset.value;
-
-      if (oldWord) {
-        setBankWordUsed(oldWord, false);
-      }
-
-      zone.textContent = "";
-      zone.dataset.value = "";
-      zone.draggable = false;
-      zone.classList.remove(
-        "filled",
-        "correct",
-        "incorrect",
-        "selected",
-        "drag-over"
-      );
     }
 
     function setZoneWord(zone, word) {
@@ -479,6 +361,18 @@
       zone.classList.add("filled");
       zone.classList.remove("correct", "incorrect", "selected", "drag-over");
       setBankWordUsed(word, true);
+    }
+
+    function returnZoneWordToBank(zone) {
+      const oldWord = zone.dataset.value;
+      if (!oldWord) return;
+      setBankWordUsed(oldWord, false);
+      zone.textContent = "";
+      zone.dataset.value = "";
+      zone.draggable = false;
+      zone.classList.remove("filled", "correct", "incorrect", "selected", "drag-over");
+      clearSelection();
+      document.getElementById("result").textContent = "";
     }
 
     function moveOrSwap(source, target) {
@@ -493,10 +387,7 @@
       const targetWord = target.dataset.value || "";
 
       if (sourceType === "bank") {
-        if (targetWord) {
-          setBankWordUsed(targetWord, false);
-        }
-
+        if (targetWord) setBankWordUsed(targetWord, false);
         setZoneWord(target, sourceWord);
       }
 
@@ -511,25 +402,11 @@
           sourceZone.textContent = "";
           sourceZone.dataset.value = "";
           sourceZone.draggable = false;
-          sourceZone.classList.remove(
-            "filled",
-            "correct",
-            "incorrect",
-            "selected"
-          );
+          sourceZone.classList.remove("filled", "correct", "incorrect", "selected");
         }
-
         setZoneWord(target, sourceWord);
       }
 
-      clearSelection();
-      document.getElementById("result").textContent = "";
-    }
-
-    function returnZoneWordToBank(zone) {
-      if (!zone.dataset.value) return;
-
-      clearZone(zone);
       clearSelection();
       document.getElementById("result").textContent = "";
     }
@@ -545,12 +422,7 @@
       item.dataset.word = word;
 
       item.addEventListener("dragstart", event => {
-        draggedItem = {
-          type: "bank",
-          word: word,
-          zone: null
-        };
-
+        draggedItem = { type: "bank", word: word, zone: null };
         event.dataTransfer.setData("text/plain", word);
         event.dataTransfer.effectAllowed = "move";
       });
@@ -561,13 +433,7 @@
 
       item.addEventListener("click", () => {
         clearSelection();
-
-        selectedItem = {
-          type: "bank",
-          word: word,
-          zone: null
-        };
-
+        selectedItem = { type: "bank", word: word, zone: null };
         item.classList.add("selected");
       });
 
@@ -577,7 +443,6 @@
 
     function fillWordBank() {
       wordBank.innerHTML = "";
-
       shuffle(words).forEach(word => {
         wordBank.appendChild(createWord(word));
       });
@@ -588,18 +453,11 @@
 
       zone.addEventListener("dragstart", event => {
         const word = zone.dataset.value;
-
         if (!word) {
           event.preventDefault();
           return;
         }
-
-        draggedItem = {
-          type: "zone",
-          word: word,
-          zone: zone
-        };
-
+        draggedItem = { type: "zone", word: word, zone: zone };
         event.dataTransfer.setData("text/plain", word);
         event.dataTransfer.effectAllowed = "move";
       });
@@ -622,10 +480,7 @@
       zone.addEventListener("drop", event => {
         event.preventDefault();
         zone.classList.remove("drag-over");
-
-        if (draggedItem) {
-          moveOrSwap(draggedItem, zone);
-        }
+        if (draggedItem) moveOrSwap(draggedItem, zone);
       });
 
       zone.addEventListener("click", () => {
@@ -635,16 +490,9 @@
         }
 
         const word = zone.dataset.value;
-
         if (word) {
           clearSelection();
-
-          selectedItem = {
-            type: "zone",
-            word: word,
-            zone: zone
-          };
-
+          selectedItem = { type: "zone", word: word, zone: zone };
           zone.classList.add("selected");
         }
       });
@@ -658,7 +506,6 @@
           event.preventDefault();
           moveOrSwap(selectedItem, zone);
         }
-
         if (event.key === "Backspace" || event.key === "Delete") {
           event.preventDefault();
           returnZoneWordToBank(zone);
@@ -673,26 +520,19 @@
 
     wordBank.addEventListener("drop", event => {
       event.preventDefault();
-
       if (draggedItem && draggedItem.type === "zone" && draggedItem.zone) {
         returnZoneWordToBank(draggedItem.zone);
       }
-
       draggedItem = null;
     });
 
     function checkAnswers() {
       let correct = 0;
-
       zones.forEach(zone => {
         const isCorrect = zone.dataset.value === zone.dataset.answer;
-
         zone.classList.toggle("correct", isCorrect);
         zone.classList.toggle("incorrect", !isCorrect);
-
-        if (isCorrect) {
-          correct++;
-        }
+        if (isCorrect) correct++;
       });
 
       const result = document.getElementById("result");
@@ -706,13 +546,7 @@
         zone.textContent = "";
         zone.dataset.value = "";
         zone.draggable = false;
-        zone.classList.remove(
-          "filled",
-          "correct",
-          "incorrect",
-          "selected",
-          "drag-over"
-        );
+        zone.classList.remove("filled", "correct", "incorrect", "selected", "drag-over");
       });
 
       selectedItem = null;
