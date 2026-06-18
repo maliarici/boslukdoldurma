@@ -146,16 +146,31 @@
       background: rgba(255, 250, 235, 0.45);
     }
 
+    .content-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      margin-top: 8px;
+    }
+
+    .story-column {
+      flex: 1 1 58%;
+      min-width: 0;
+    }
+
+    .image-column {
+      flex: 0 0 34%;
+      max-width: 340px;
+    }
+
     .hero-image-wrap {
-      margin: 0 0 24px;
+      margin: 0;
       text-align: center;
     }
 
     .hero-image {
       width: 100%;
-      max-width: 430px;
       display: block;
-      margin: 0 auto;
       border: 8px solid #f4e9cd;
       outline: 1px solid #8d7657;
       box-shadow: 0 10px 24px rgba(69, 49, 28, 0.18);
@@ -314,6 +329,15 @@
         font-size: 16px;
       }
 
+      .content-row {
+        flex-direction: column;
+      }
+
+      .image-column {
+        max-width: 100%;
+        width: 100%;
+      }
+
       .hero-image {
         max-width: 100%;
       }
@@ -335,15 +359,13 @@
     <p class="instructions">
       Doğru kelimeyi seçelim ve boşluğa taşıyalım.
     </p>
-
-    <div class="hero-image-wrap">
-      <img src="adam.png" alt="İş görüşmesine giden genç bir adam" class="hero-image">
-      <div class="hero-caption">Metne uygun görsel</div>
-    </div>
+</div>
 
         <section id="wordBank" class="word-bank" aria-label="Kelime havuzu"></section>
 
-    <section class="story">
+    <div class="content-row">
+      <div class="story-column">
+        <section class="story">
       Dün sabah çok heyecanlıydım çünkü önemli bir randevum
       <span class="drop-zone" data-answer="vardı" tabindex="0"></span>.
       Bu bir iş görüşmesiydi. Erkenden kalktım ve beyaz gömleğimi
@@ -366,11 +388,7 @@
       Şanslıyım ki patron esprimi beğendi ve yeni işime
       <span class="drop-zone" data-answer="başladım" tabindex="0"></span>!
     </section>
-
-    <div class="hero-image-wrap">
-      <img src="adam.png" alt="İş görüşmesine giden genç bir adam" class="hero-image">
-      <div class="hero-caption">Metne uygun görsel</div>
-    </div>
+</div>
 
     <div class="actions">
       <button class="check-button" type="button" onclick="checkAnswers()">
